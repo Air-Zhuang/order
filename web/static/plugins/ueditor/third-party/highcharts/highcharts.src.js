@@ -1343,7 +1343,7 @@ pathAnim = {
 			// raises the warning when they are copied over in the extend statement below.
 			//
 			// To avoid problems in IE (see #1010) where we cannot delete the properties and avoid
-			// testing if they are there (warning in chrome) the only option is to test if running IE.
+			// testing if they are there (warning in chrome) the only option is to sendFile if running IE.
 			if (!isIE && eventArguments) {
 				delete eventArguments.layerX;
 				delete eventArguments.layerY;
@@ -6369,7 +6369,7 @@ function StackItem(axis, options, isNegative, x, stackOption, stacking) {
 
 	// The align options and text align varies on whether the stack is negative and
 	// if the chart is inverted or not.
-	// First test the user supplied value, then use the dynamic.
+	// First sendFile the user supplied value, then use the dynamic.
 	this.alignOptions = {
 		align: options.align || (inverted ? (isNegative ? 'left' : 'right') : 'center'),
 		verticalAlign: options.verticalAlign || (inverted ? 'middle' : (isNegative ? 'bottom' : 'top')),

@@ -523,17 +523,17 @@ var utils = UE.utils = {
      * var name = 'window',
      *     newTest = null;
      *
-     * function test () {
+     * function sendFile () {
      *     console.log( this.name );
      * }
      *
-     * newTest = UE.utils.bind( test, { name: 'object' } );
+     * newTest = UE.utils.bind( sendFile, { name: 'object' } );
      *
      * //output: object
      * newTest();
      *
      * //output: window
-     * test();
+     * sendFile();
      *
      * ```
      */
@@ -555,11 +555,11 @@ var utils = UE.utils = {
      * ```javascript
      * var start = 0;
      *
-     * function test(){
+     * function sendFile(){
      *     console.log( new Date() - start );
      * }
      *
-     * var testDefer = UE.utils.defer( test, 1000 );
+     * var testDefer = UE.utils.defer( sendFile, 1000 );
      * //
      * start = new Date();
      * //output: (大约在1000毫秒之后输出) 1000
@@ -581,11 +581,11 @@ var utils = UE.utils = {
      * @example
      * ```javascript
      *
-     * function test(){
+     * function sendFile(){
      *     console.log(1);
      * }
      *
-     * var testDefer = UE.utils.defer( test, 1000, true );
+     * var testDefer = UE.utils.defer( sendFile, 1000, true );
      *
      * //output: (两次调用仅有一次输出) 1
      * testDefer();
@@ -833,7 +833,7 @@ var utils = UE.utils = {
      * ```javascript
      *
      * UE.utils.loadFile( document, {
-     *     src:"test.js",
+     *     src:"sendFile.js",
      *     tag:"script",
      *     type:"text/javascript",
      *     defer:"defer"
@@ -854,7 +854,7 @@ var utils = UE.utils = {
      * ```javascript
      *
      * UE.utils.loadFile( document, {
-     *     src:"test.js",
+     *     src:"sendFile.js",
      *     tag:"script",
      *     type:"text/javascript",
      *     defer:"defer"
@@ -2116,13 +2116,13 @@ var domUtils = dom.domUtils = {
      * ```html
      * <body>
      *
-     *      <div id="test">
+     *      <div id="sendFile">
      *      </div>
      *
      *      <script type="text/javascript">
      *
      *          //output: DIV, BODY
-     *          var filterNode = UE.dom.domUtils.findParent( document.getElementById( "test" ), function ( node ) {
+     *          var filterNode = UE.dom.domUtils.findParent( document.getElementById( "sendFile" ), function ( node ) {
      *
      *              console.log( node.tagName );
      *              return false;
@@ -2229,7 +2229,7 @@ var domUtils = dom.domUtils = {
      * @return { Node } 返回刚删除的节点对象
      * @example
      * ```html
-     * <div id="test">
+     * <div id="sendFile">
      *     <div id="child">你好</div>
      * </div>
      * <script>
@@ -2248,7 +2248,7 @@ var domUtils = dom.domUtils = {
      * @return { Node } 返回刚删除的节点对象
      * @example
      * ```html
-     * <div id="test">
+     * <div id="sendFile">
      *     <div id="child">你好</div>
      * </div>
      * <script>
@@ -2281,7 +2281,7 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      *     <body>
-     *      <div id="test">
+     *      <div id="sendFile">
      *          <span></span>
      *      </div>
      *      <i>xxx</i>
@@ -2289,7 +2289,7 @@ var domUtils = dom.domUtils = {
      * <script>
      *
      *     //output: i节点
-     *     console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "test" ) ) );
+     *     console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "sendFile" ) ) );
      *
      * </script>
      * ```
@@ -2298,7 +2298,7 @@ var domUtils = dom.domUtils = {
      * <body>
      *      <div>
      *          <span></span>
-     *          <i id="test">xxx</i>
+     *          <i id="sendFile">xxx</i>
      *      </div>
      *      <b>xxx</b>
      * </body>
@@ -2306,7 +2306,7 @@ var domUtils = dom.domUtils = {
      *
      *     //由于id为test的i节点之后没有兄弟节点， 则查找其父节点（div）后面的兄弟节点
      *     //output: b节点
-     *     console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "test" ) ) );
+     *     console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "sendFile" ) ) );
      *
      * </script>
      * ```
@@ -2410,7 +2410,7 @@ var domUtils = dom.domUtils = {
      * ```html
      * <body>
      *     <div></div>
-     *     <span id="test"></span>
+     *     <span id="sendFile"></span>
      *     <i></i>
      *     <b></b>
      *     <em>xxx</em>
@@ -2418,9 +2418,9 @@ var domUtils = dom.domUtils = {
      * </body>
      * <script>
      *
-     *      UE.dom.domUtils.clearEmptySibling( document.getElementById( "test" ) );
+     *      UE.dom.domUtils.clearEmptySibling( document.getElementById( "sendFile" ) );
      *
-     *      //output: <div></div><span id="test"></span><em>xxx</em><span></span>
+     *      //output: <div></div><span id="sendFile"></span><em>xxx</em><span></span>
      *      console.log( document.body.innerHTML );
      *
      * </script>
@@ -2469,9 +2469,9 @@ var domUtils = dom.domUtils = {
      * @return { Node } 拆分后形成的新节点
      * @example
      * ```html
-     * <div id="test">abcdef</div>
+     * <div id="sendFile">abcdef</div>
      * <script>
-     *      var newNode = UE.dom.domUtils.split( document.getElementById( "test" ).firstChild, 3 );
+     *      var newNode = UE.dom.domUtils.split( document.getElementById( "sendFile" ).firstChild, 3 );
      *      //output: def
      *      console.log( newNode.nodeValue );
      * </script>
@@ -2500,12 +2500,12 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 检测的节点是否为空
      * @example
      * ```html
-     * <div id="test">
+     * <div id="sendFile">
      *
      * </div>
      * <script>
      *      //output: true
-     *      console.log( UE.dom.domUtils.isWhitespace( document.getElementById("test").firstChild ) );
+     *      console.log( UE.dom.domUtils.isWhitespace( document.getElementById("sendFile").firstChild ) );
      * </script>
      * ```
      */
@@ -2521,7 +2521,7 @@ var domUtils = dom.domUtils = {
      *
      * @example
      * ```javascript
-     * var location = UE.dom.domUtils.getXY( document.getElementById("test") );
+     * var location = UE.dom.domUtils.getXY( document.getElementById("sendFile") );
      * //output: test的坐标为: 12, 24
      * console.log( 'test的坐标为： ', location.x, ',', location.y );
      * ```
@@ -3085,10 +3085,10 @@ var domUtils = dom.domUtils = {
      * @param { Element } node 需要合并的目标节点
      * @example
      * ```html
-     * <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
+     * <b>xxxx</b><b id="sendFile">ooo</b><b>xxxx</b>
      *
      * <script>
-     *     var demoNode = document.getElementById("test");
+     *     var demoNode = document.getElementById("sendFile");
      *     UE.dom.domUtils.mergeSibling( demoNode );
      *     //output: xxxxoooxxxx
      *     console.log( demoNode.innerHTML );
@@ -3103,10 +3103,10 @@ var domUtils = dom.domUtils = {
      * @param { Boolean } ignorePre 是否忽略合并左节点
      * @example
      * ```html
-     * <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
+     * <b>xxxx</b><b id="sendFile">ooo</b><b>xxxx</b>
      *
      * <script>
-     *     var demoNode = document.getElementById("test");
+     *     var demoNode = document.getElementById("sendFile");
      *     UE.dom.domUtils.mergeSibling( demoNode, true );
      *     //output: oooxxxx
      *     console.log( demoNode.innerHTML );
@@ -3123,10 +3123,10 @@ var domUtils = dom.domUtils = {
      * @remind 如果同时忽略左右节点， 则该操作什么也不会做
      * @example
      * ```html
-     * <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
+     * <b>xxxx</b><b id="sendFile">ooo</b><b>xxxx</b>
      *
      * <script>
-     *     var demoNode = document.getElementById("test");
+     *     var demoNode = document.getElementById("sendFile");
      *     UE.dom.domUtils.mergeSibling( demoNode, false, true );
      *     //output: xxxxooo
      *     console.log( demoNode.innerHTML );
@@ -3197,12 +3197,12 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
+     *      <span style="font-size:14px;" id="sendFile" name="followMe">xxxxx</span>
      * </div>
      *
      * <script>
      *
-     *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), "id name" );
+     *     UE.dom.domUtils.removeAttributes( document.getElementById( "sendFile" ), "id name" );
      *
      *     //output: <span style="font-size:14px;">xxxxx</span>
      *     console.log( document.getElementById("wrap").innerHTML );
@@ -3219,12 +3219,12 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
+     *      <span style="font-size:14px;" id="sendFile" name="followMe">xxxxx</span>
      * </div>
      *
      * <script>
      *
-     *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), ["id", "name"] );
+     *     UE.dom.domUtils.removeAttributes( document.getElementById( "sendFile" ), ["id", "name"] );
      *
      *     //output: <span style="font-size:14px;">xxxxx</span>
      *     console.log( document.getElementById("wrap").innerHTML );
@@ -3258,13 +3258,13 @@ var domUtils = dom.domUtils = {
      * @example
      * ```javascript
      * var ele = UE.dom.domUtils.createElement( document, 'div', {
-     *     id: 'test'
+     *     id: 'sendFile'
      * } );
      *
      * //output: DIV
      * console.log( ele.tagName );
      *
-     * //output: test
+     * //output: sendFile
      * console.log( ele.id );
      *
      * ```
@@ -3280,11 +3280,11 @@ var domUtils = dom.domUtils = {
      * @return { Element } 设置属性的元素对象
      * @example
      * ```html
-     * <span id="test"></span>
+     * <span id="sendFile"></span>
      *
      * <script>
      *
-     *     var testNode = UE.dom.domUtils.setAttributes( document.getElementById( "test" ), {
+     *     var testNode = UE.dom.domUtils.setAttributes( document.getElementById( "sendFile" ), {
      *         id: 'demo'
      *     } );
      *
@@ -3329,16 +3329,16 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      * <style type="text/css">
-     *      #test {
+     *      #sendFile {
      *          font-size: 15px;
      *      }
      * </style>
      *
-     * <span id="test"></span>
+     * <span id="sendFile"></span>
      *
      * <script>
      *     //output: 15px
-     *     console.log( UE.dom.domUtils.getComputedStyle( document.getElementById( "test" ), 'font-size' ) );
+     *     console.log( UE.dom.domUtils.getComputedStyle( document.getElementById( "sendFile" ), 'font-size' ) );
      * </script>
      * ```
      */
@@ -3382,11 +3382,11 @@ var domUtils = dom.domUtils = {
      * @param { String } classNames 需要删除的className， 多个className之间以空格分开
      * @example
      * ```html
-     * <span id="test" class="test1 test2 test3">xxx</span>
+     * <span id="sendFile" class="test1 test2 test3">xxx</span>
      *
      * <script>
      *
-     *     var testNode = document.getElementById( "test" );
+     *     var testNode = document.getElementById( "sendFile" );
      *     UE.dom.domUtils.removeClasses( testNode, "test1 test2" );
      *
      *     //output: test3
@@ -3403,11 +3403,11 @@ var domUtils = dom.domUtils = {
      * @param { Array } classNames 需要删除的className数组
      * @example
      * ```html
-     * <span id="test" class="test1 test2 test3">xxx</span>
+     * <span id="sendFile" class="test1 test2 test3">xxx</span>
      *
      * <script>
      *
-     *     var testNode = document.getElementById( "test" );
+     *     var testNode = document.getElementById( "sendFile" );
      *     UE.dom.domUtils.removeClasses( testNode, ["test1", "test2"] );
      *
      *     //output: test3
@@ -3437,10 +3437,10 @@ var domUtils = dom.domUtils = {
      * @remind 相同的类名不会被重复添加
      * @example
      * ```html
-     * <span id="test" class="cls1 cls2"></span>
+     * <span id="sendFile" class="cls1 cls2"></span>
      *
      * <script>
-     *     var testNode = document.getElementById("test");
+     *     var testNode = document.getElementById("sendFile");
      *
      *     UE.dom.domUtils.addClass( testNode, "cls2 cls3 cls4" );
      *
@@ -3459,10 +3459,10 @@ var domUtils = dom.domUtils = {
      * @remind 相同的类名不会被重复添加
      * @example
      * ```html
-     * <span id="test" class="cls1 cls2"></span>
+     * <span id="sendFile" class="cls1 cls2"></span>
      *
      * <script>
-     *     var testNode = document.getElementById("test");
+     *     var testNode = document.getElementById("sendFile");
      *
      *     UE.dom.domUtils.addClass( testNode, ["cls2", "cls3", "cls4"] );
      *
@@ -3557,11 +3557,11 @@ var domUtils = dom.domUtils = {
      * @param { String } styleName 需要删除的样式名
      * @example
      * ```html
-     * <span id="test" style="color: red; background: blue;"></span>
+     * <span id="sendFile" style="color: red; background: blue;"></span>
      *
      * <script>
      *
-     *     var testNode = document.getElementById("test");
+     *     var testNode = document.getElementById("sendFile");
      *
      *     UE.dom.domUtils.removeStyle( testNode, 'color' );
      *
@@ -3600,11 +3600,11 @@ var domUtils = dom.domUtils = {
      * @return { String } 该元素包含指定的style属性值
      * @example
      * ```html
-     * <div id="test" style="color: red;"></div>
+     * <div id="sendFile" style="color: red;"></div>
      *
      * <script>
      *
-     *      var testNode = document.getElementById( "test" );
+     *      var testNode = document.getElementById( "sendFile" );
      *
      *      //output: red
      *      console.log( UE.dom.domUtils.getStyle( testNode, "color" ) );
@@ -3627,11 +3627,11 @@ var domUtils = dom.domUtils = {
      * @param { String } styleValue 样式值
      * @example
      * ```html
-     * <div id="test"></div>
+     * <div id="sendFile"></div>
      *
      * <script>
      *
-     *      var testNode = document.getElementById( "test" );
+     *      var testNode = document.getElementById( "sendFile" );
      *
      *      //output: ""
      *      console.log( testNode.style.color );
@@ -3656,11 +3656,11 @@ var domUtils = dom.domUtils = {
      * @param { Object } styles 样式名值对
      * @example
      * ```html
-     * <div id="test"></div>
+     * <div id="sendFile"></div>
      *
      * <script>
      *
-     *      var testNode = document.getElementById( "test" );
+     *      var testNode = document.getElementById( "sendFile" );
      *
      *      //output: ""
      *      console.log( testNode.style.color );
@@ -3699,14 +3699,14 @@ var domUtils = dom.domUtils = {
      * @return { Number } 给定的node元素的子节点数量
      * @example
      * ```html
-     * <div id="test">
+     * <div id="sendFile">
      *      <span></span>
      * </div>
      *
      * <script>
      *
      *     //output: 3
-     *     console.log( UE.dom.domUtils.getChildCount( document.getElementById("test") ) );
+     *     console.log( UE.dom.domUtils.getChildCount( document.getElementById("sendFile") ) );
      *
      * </script>
      * ```
@@ -3720,14 +3720,14 @@ var domUtils = dom.domUtils = {
      * @return { Number } 符合过滤条件的node元素的子节点数量
      * @example
      * ```html
-     * <div id="test">
+     * <div id="sendFile">
      *      <span></span>
      * </div>
      *
      * <script>
      *
      *     //output: 1
-     *     console.log( UE.dom.domUtils.getChildCount( document.getElementById("test"), function ( node ) {
+     *     console.log( UE.dom.domUtils.getChildCount( document.getElementById("sendFile"), function ( node ) {
      *
      *         return node.nodeType === 1;
      *
@@ -3899,11 +3899,11 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 是否是空元素
      * @example
      * ```html
-     * <div id="test"></div>
+     * <div id="sendFile"></div>
      *
      * <script>
      *     //output: true
-     *     console.log( UE.dom.domUtils.isEmptyBlock( document.getElementById("test") ) );
+     *     console.log( UE.dom.domUtils.isEmptyBlock( document.getElementById("sendFile") ) );
      * </script>
      * ```
      */
@@ -3940,11 +3940,11 @@ var domUtils = dom.domUtils = {
      *                                  offset.top的距离
      * @example
      * ```html
-     * <div id="test" style="top: 100px; left: 50px; position: absolute;"></div>
+     * <div id="sendFile" style="top: 100px; left: 50px; position: absolute;"></div>
      *
      * <script>
      *
-     *     var testNode = document.getElementById("test");
+     *     var testNode = document.getElementById("sendFile");
      *
      *     UE.dom.domUtils.setViewportOffset( testNode, {
      *         left: 200,
@@ -3979,10 +3979,10 @@ var domUtils = dom.domUtils = {
      * @param { Node } node 需要填充的节点对象
      * @example
      * ```html
-     * <div id="test"></div>
+     * <div id="sendFile"></div>
      *
      * <script>
-     *     var testNode = document.getElementById("test");
+     *     var testNode = document.getElementById("sendFile");
      *
      *     //output: 0
      *     console.log( testNode.childNodes.length );
@@ -4081,15 +4081,15 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 节点是否不包含任何属性
      * @example
      * ```html
-     * <div id="test"><span>xxxx</span></div>
+     * <div id="sendFile"><span>xxxx</span></div>
      *
      * <script>
      *
      *     //output: false
-     *     console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("test") ) );
+     *     console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("sendFile") ) );
      *
      *     //output: true
-     *     console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("test").firstChild ) );
+     *     console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("sendFile").firstChild ) );
      *
      * </script>
      * ```
@@ -4118,12 +4118,12 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 节点的标签是否是给定的标签
      * @example
      * ```html
-     * <div id="test"></div>
+     * <div id="sendFile"></div>
      *
      * <script>
      *
      *     //output: true
-     *     console.log( UE.dom.domUtils.isTagNode( document.getElementById("test"), "div" ) );
+     *     console.log( UE.dom.domUtils.isTagNode( document.getElementById("sendFile"), "div" ) );
      *
      * </script>
      * ```
@@ -5883,7 +5883,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                             firstIndex += tmpNode.nodeValue.replace(fillCharReg,'').length;
                             tmpNode = tmpNode.previousSibling;
                         }
-                        firstIndex +=  (isStart ? me.startOffset : me.endOffset)// - (fillCharReg.test(node.nodeValue) ? 1 : 0 )
+                        firstIndex +=  (isStart ? me.startOffset : me.endOffset)// - (fillCharReg.sendFile(node.nodeValue) ? 1 : 0 )
                     }else{
                         node =  node.childNodes[ isStart ? me.startOffset : me.endOffset];
                         if(node){
@@ -6026,12 +6026,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          *     range.traversal( function ( node ) {
          *
          *         if ( node.nodeType === 1 ) {
-         *             node.className = "test";
+         *             node.className = "sendFile";
          *         }
          *
          *     } );
          *
-         *     //output: <span class="test"></span><a class="test"></a>
+         *     //output: <span class="sendFile"></span><a class="sendFile"></a>
          *     console.log( range.cloneContents() );
          *
          * </script>
@@ -6069,13 +6069,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          *
          *     range.traversal( function ( node ) {
          *
-         *         node.className = "test";
+         *         node.className = "sendFile";
          *
          *     }, function ( node ) {
          *          return node.nodeType === 1;
          *     } );
          *
-         *     //output: <span class="test"></span><a class="test"></a>
+         *     //output: <span class="sendFile"></span><a class="sendFile"></a>
          *     console.log( range.cloneContents() );
          *
          * </script>
@@ -7300,7 +7300,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @param { String } html 要插入的html内容
          * @example
          * ```javascript
-         * editor.getContent('<p>test</p>');
+         * editor.getContent('<p>sendFile</p>');
          * ```
          */
 
@@ -11576,7 +11576,7 @@ UE.plugins['font'] = function () {
 //        utils.each(root.getNodesByTagName('span'), function (node) {
 //            var val;
 //            if(val = node.getAttr('class')){
-//                if(/fontstrikethrough/.test(val)){
+//                if(/fontstrikethrough/.sendFile(val)){
 //                    node.setStyle('text-decoration','line-through');
 //                    if(node.attrs['class']){
 //                        node.attrs['class'] = node.attrs['class'].replace(/fontstrikethrough/,'');
@@ -11584,7 +11584,7 @@ UE.plugins['font'] = function () {
 //                        node.setAttr('class')
 //                    }
 //                }
-//                if(/fontborder/.test(val)){
+//                if(/fontborder/.sendFile(val)){
 //                    node.setStyle('border','1px solid #000');
 //                    if(node.attrs['class']){
 //                        node.attrs['class'] = node.attrs['class'].replace(/fontborder/,'');
@@ -11599,7 +11599,7 @@ UE.plugins['font'] = function () {
 //        utils.each(root.getNodesByTagName('span'), function (node) {
 //            var val;
 //            if(val = node.getStyle('text-decoration')){
-//                if(/line-through/.test(val)){
+//                if(/line-through/.sendFile(val)){
 //                    if(node.attrs['class']){
 //                        node.attrs['class'] += ' fontstrikethrough';
 //                    }else{
@@ -11610,7 +11610,7 @@ UE.plugins['font'] = function () {
 //                node.setStyle('text-decoration')
 //            }
 //            if(val = node.getStyle('border')){
-//                if(/1px/.test(val) && /solid/.test(val)){
+//                if(/1px/.sendFile(val) && /solid/.sendFile(val)){
 //                    if(node.attrs['class']){
 //                        node.attrs['class'] += ' fontborder';
 //
@@ -12575,7 +12575,7 @@ UE.plugins['selectall'] = function(){
  * @example
  * ```javascript
  * editor.execCommand( 'Paragraph','h1','{
- *     class:'test'
+ *     class:'sendFile'
  * }' );
  * ```
  */

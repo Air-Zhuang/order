@@ -2501,7 +2501,7 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 						'mv netstat nice nl nohup nslookup open op passwd paste pathchk ping popd pr printcap ' +
 						'printenv printf ps pushd pwd quota quotacheck quotactl ram rcp read readonly renice ' +
 						'remsync rm rmdir rsync screen scp sdiff sed select seq set sftp shift shopt shutdown ' +
-						'sleep sort source split ssh strace su sudo sum symlink sync tail tar tee test time ' +
+						'sleep sort source split ssh strace su sudo sum symlink sync tail tar tee sendFile time ' +
 						'times touch top traceroute trap tr true tsort tty type ulimit umask umount unalias ' +
 						'uname unexpand uniq units unset unshar useradd usermod users uuencode uudecode v vdir ' +
 						'vi watch wc whereis which who whoami Wget xargs yes'
@@ -3272,7 +3272,7 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 						'imatch ine inotcontains inotlike inotmatch ireplace is isnot le like ' +
 						'lt match ne not notcontains notlike notmatch or regex replace wildcard';
 						
-		var verbs =		'write where wait use update unregister undo trace test tee take suspend ' +
+		var verbs =		'write where wait use update unregister undo trace sendFile tee take suspend ' +
 						'stop start split sort skip show set send select scroll resume restore ' +
 						'restart resolve resize reset rename remove register receive read push ' +
 						'pop ping out new move measure limit join invoke import group get format ' +
