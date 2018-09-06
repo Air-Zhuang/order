@@ -1,0 +1,6 @@
+flask
+flask_sqlalchemy
+mysqlclient
+flask_script
+flask-sqlacodegen
+requests
