@@ -1,7 +1,4 @@
-Python Flask订餐系统
+Python Flask微信小程序
 =======================
 ##启动
 #set ops_config=local&& python manage.py runserver
-
-#debug
-#print("|||||||||||||||||||||||||||||||||||||||")
