@@ -828,9 +828,9 @@
 				yAxis = series.yAxis,
 				colorKey = series.colorKey;
 			
-			// Make points pass sendFile in drawing
+			// Make points pass file in drawing
 			each(series.data, function (point) {
-				point.plotY = 1; // pass null sendFile in column.drawPoints
+				point.plotY = 1; // pass null file in column.drawPoints
 				if (point[colorKey] === null) {
 					point[colorKey] = 0;
 					point.isNull = true;

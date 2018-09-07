@@ -605,12 +605,12 @@ var rgxFindMatchPos = function (str, left, right, flags) {
  * balanced instance of "<x>").
  *
  * examples:
- * matchRecursiveRegExp("sendFile", "\\(", "\\)")
+ * matchRecursiveRegExp("file", "\\(", "\\)")
  * returns: []
  * matchRecursiveRegExp("<t<<e>><s>>t<>", "<", ">", "g")
  * returns: ["t<<e>><s>", ""]
- * matchRecursiveRegExp("<div id=\"x\">sendFile</div>", "<div\\b[^>]*>", "</div>", "gi")
- * returns: ["sendFile"]
+ * matchRecursiveRegExp("<div id=\"x\">file</div>", "<div\\b[^>]*>", "</div>", "gi")
+ * returns: ["file"]
  */
 showdown.helper.matchRecursiveRegExp = function (str, left, right, flags) {
   'use strict';
@@ -1220,8 +1220,8 @@ showdown.subParser('anchors', function (text, options, globals) {
 
   //
   // Last, handle reference-style shortcuts: [link text]
-  // These must come last in case you've also got [link sendFile][1]
-  // or [link sendFile](/foo)
+  // These must come last in case you've also got [link file][1]
+  // or [link file](/foo)
   //
 
   /*

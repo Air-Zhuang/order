@@ -5,7 +5,7 @@ import argparse,sys,traceback
 
 '''
 python manage.py runjob -m Test  (  jobs/tasks/Test.py )
-python manage.py runjob -m sendFile/Index (  jobs/tasks/sendFile/Index.py )
+python manage.py runjob -m file/Index (  jobs/tasks/file/Index.py )
 * name or flags - 名称或选项字符串列表, e.g. foo or -f, --foo.
 * action - 参数如果定义了选项，表示这是一个操作参数，至于调用时做哪种操作由用户输入或者default决定。
 * nargs - 应该使用的命令行参数数。.
@@ -51,7 +51,7 @@ class runJob( Command ):
         tip_msg = '''
             请正确调度Job
             python manage runjob -m Test  (  jobs/tasks/Test.py )
-            python manage runjob -m sendFile/Index (  jobs/tasks/sendFile/Index.py )
+            python manage runjob -m file/Index (  jobs/tasks/file/Index.py )
         '''
         app.logger.info( tip_msg )
         return False

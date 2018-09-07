@@ -38,7 +38,7 @@ class JobTask():
             self.statFood( func_params )
         elif act == "site":
             self.statSite( func_params)
-        elif act == "sendFile":
+        elif act == "file":
             self.test()
 
         app.logger.info("it's over~~")
@@ -190,7 +190,7 @@ class JobTask():
             date_before = now + datetime.timedelta( days = -i )
             date = getFormatDate( date = date_before,format = "%Y-%m-%d" )
             tmp_params = {
-                'act': 'sendFile',
+                'act': 'file',
                 'date': date,
                 'date_from': date + " 00:00:00",
                 'date_to':  date + " 23:59:59"
