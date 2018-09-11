@@ -107,7 +107,7 @@
     } else if ( typeof define === 'function' && define.amd ) {
 
         // Allow using this built library as an AMD module
-        // in another project. That other project will only
+        // in another ChatRoom. That other ChatRoom will only
         // see this AMD call, not the internal modules in
         // the closure below.
         define([], exports );
